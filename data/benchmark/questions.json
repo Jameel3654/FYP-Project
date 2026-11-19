@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "document": "sample.pdf",
+    "question": "What is the main topic of this document?",
+    "expected_answer": "The document discusses the design, implementation, and evaluation of context optimization in retrieval-augmented generation systems.",
+    "category": "comprehension"
+  },
+  {
+    "id": 2,
+    "document": "sample.pdf",
+    "question": "What specific compression ratio did the framework achieve during evaluation?",
+    "expected_answer": "The framework achieved a 2.5x to 4x context compression ratio while retaining over 95% semantic information.",
+    "category": "factual"
+  },
+  {
+    "id": 3,
+    "document": "sample.pdf",
+    "question": "Why does reordering retrieved chunks improve LLM answer accuracy in long context windows?",
+    "expected_answer": "Because standard transformers attend predominantly to the beginning and end of long prompts, suffering from the Lost in the Middle degradation when relevant facts reside in central passages.",
+    "category": "inference"
+  },
+  {
+    "id": 4,
+    "document": "sample.pdf",
+    "question": "Summarize the key architectural components of the proposed system in three bullet points.",
+    "expected_answer": "1. Multi-format ingestion with Tesseract OCR fallback. 2. Vector indexing with LaBSE multilingual embeddings. 3. LLMLingua prompt compression and attention-aware chunk reordering.",
+    "category": "summarization"
+  },
+  {
+    "id": 5,
+    "document": "sample.pdf",
+    "question": "How does the token cost of the optimized RAG pipeline compare with the uncompressed baseline across high-volume queries?",
+    "expected_answer": "The optimized RAG pipeline reduces token consumption by 60-75%, resulting in a proportional decrease in per-query API expenditure in both USD and PKR without degrading answer accuracy.",
+    "category": "comparison"
+  }
+]

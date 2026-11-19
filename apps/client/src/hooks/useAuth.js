@@ -1,0 +1,48 @@
+// Hook for authentication operations
+import { useState } from 'react';
+import api from '../services/api';
+
+export const useAuth = () => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const login = async (email, password) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await api.post('/auth/login', { email, password });
+      localStorage.setItem('token', res.data.data.token);
+      setUser(res.data.data.user);
+      setLoading(false);
+      return true;
+    } catch (err) {
+      setError(err.response?.data?.error || err.response?.data?.message || 'Login failed');
+      setLoading(false);
+      return false;
+    }
+  };
+
+  const register = async (name, email, password) => {
+    setLoading(true);
+    setError(null);
+    try {
+      await api.post('/auth/register', { name, email, password });
+      setLoading(false);
+      return true;
+    } catch (err) {
+      setError(err.response?.data?.error || err.response?.data?.message || 'Registration failed');
+      setLoading(false);
+      return false;
+    }
+  };
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    setUser(null);
+  };
+
+  return { user, loading, error, login, register, logout };
+};
+
+export default useAuth;

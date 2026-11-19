@@ -1,0 +1,50 @@
+# ============================================================
+# COF-RAG AI Engine — Python Dependencies
+# ============================================================
+# Two-stage compression: Provence + LLMLingua-2
+# Install: pip install -r requirements.txt
+# Then:    python -m spacy download en_core_web_sm
+#          python -c "import nltk; nltk.download('punkt_tab')"
+#
+# For OCR (scanned PDFs / images):
+#   https://github.com/UB-Mannheim/tesseract/wiki
+#   Install to: C:\Program Files\Tesseract-OCR\
+# ============================================================
+
+# --- Core Framework ---
+fastapi
+uvicorn[standard]
+python-dotenv
+python-multipart
+pydantic
+
+# --- PDF Extraction ---
+PyMuPDF
+
+# --- OCR (scanned PDFs + images) ---
+pytesseract
+Pillow
+
+# --- NLP (sentence splitting, NER) ---
+spacy
+
+# --- Embeddings (chunking + retrieval) ---
+sentence-transformers
+
+# --- Compression Stage 2: LLMLingua-2 (token-level, uses BERT) ---
+llmlingua
+
+# --- Compression Stage 1: Provence (sentence-level pruning) ---
+# Uses transformers pipeline with naver/provence-reranker-debertav3-v1
+transformers
+accelerate
+
+# --- Retrieval (BM25 sparse scoring) ---
+rank-bm25
+
+# --- ML Utilities ---
+numpy
+scikit-learn
+
+# --- NLTK (required by LLMLingua internally) ---
+nltk

@@ -1,0 +1,15 @@
+
+# Local runtime and secrets
+node_modules/
+dist/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+logs/
+uploads/
+output/
+data/raw/*.pdf
